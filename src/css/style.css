@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.store-selector {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.store-selector #shopee-btn {
+  background-color: #FB5430;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.store-selector #americas-btn {
+  background-color: #ED0030;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.store-selector #mercado_livre-btn {
+  background-color: #F2D500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.store-selector #kabum-btn {
+  background-color: #004D8E;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.store-selector #submarino-btn {
+  background-color: #0254F7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99vw;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+main #shopee {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+main #shopee #informacoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main #shopee #info-principal {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+}
+main #shopee #info-principal .graficos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+main #shopee #info-principal .graficos canvas {
+  max-width: 200px;
+  width: 100%;
+}
+main #info-secundaria {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+main #info-secundaria p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+main #info-secundaria td input {
+  width: 70vh;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.shopee-theme h2,
+.shopee-theme h3 {
+  color: #FB5430;
+  text-align: center;
+  border-bottom: 2px solid #FB5430;
+  margin-bottom: 20px;
+}
+.shopee-theme table #titulo_informacoes {
+  background-color: rgb(243.2985781991, 47.0142180095, 4.7014218009);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.shopee-theme table tr {
+  background-color: #FB5430;
+  color: white;
+  padding: 10px;
+}
+.shopee-theme table tr td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.shopee-theme table tr td span {
+  font-style: bold;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.americas-theme h2,
+.americas-theme h3 {
+  color: #ED0030;
+  text-align: center;
+  border-bottom: 2px solid #ED0030;
+  margin-bottom: 20px;
+}
+.americas-theme table #titulo_informacoes {
+  background-color: rgb(186, 0, 37.6708860759);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.americas-theme table tr {
+  background-color: #ED0030;
+  color: white;
+  padding: 10px;
+}
+.americas-theme table tr td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.americas-theme table tr td span {
+  font-style: bold;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.mercado_livre-theme h2,
+.mercado_livre-theme h3 {
+  color: #F2D500;
+  text-align: center;
+  border-bottom: 2px solid #F2D500;
+  margin-bottom: 20px;
+}
+.mercado_livre-theme table #titulo_informacoes {
+  background-color: rgb(191, 168.1115702479, 0);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.mercado_livre-theme table tr {
+  background-color: #F2D500;
+  color: white;
+  padding: 10px;
+}
+.mercado_livre-theme table tr td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.mercado_livre-theme table tr td span {
+  font-style: bold;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.kabum-theme h2,
+.kabum-theme h3 {
+  color: #004D8E;
+  text-align: center;
+  border-bottom: 2px solid #004D8E;
+  margin-bottom: 20px;
+}
+.kabum-theme table #titulo_informacoes {
+  background-color: rgb(0, 49.3450704225, 91);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.kabum-theme table tr {
+  background-color: #004D8E;
+  color: white;
+  padding: 10px;
+}
+.kabum-theme table tr td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.kabum-theme table tr td span {
+  font-style: bold;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.submarino-theme h2,
+.submarino-theme h3 {
+  color: #0254F7;
+  text-align: center;
+  border-bottom: 2px solid #0254F7;
+  margin-bottom: 20px;
+}
+.submarino-theme table #titulo_informacoes {
+  background-color: rgb(1.5903614458, 66.7951807229, 196.4096385542);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.submarino-theme table tr {
+  background-color: #0254F7;
+  color: white;
+  padding: 10px;
+}
+.submarino-theme table tr td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.submarino-theme table tr td span {
+  font-style: bold;
+  font-weight: normal;
+  font-size: 0.9em;
+}/*# sourceMappingURL=style.css.map */

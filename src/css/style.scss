@@ -1,0 +1,154 @@
+// ================== VARIÁVEIS ==================
+$cores-lojas: (
+    shopee: #FB5430,
+    americas: #ED0030,
+    mercado_livre: #F2D500,
+    kabum: #004D8E,
+    submarino: #0254F7
+);
+
+$highlight: #f73131;
+
+// ================== MIXINS ==================
+@mixin tema-loja($cor) {
+
+    h2,
+    h3 {
+        color: $cor;
+        text-align: center;
+        border-bottom: 2px solid $cor;
+        margin-bottom: 20px;
+    }
+
+    table {
+        #titulo_informacoes {
+            background-color: darken($cor, 10%);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        tr {
+            background-color: $cor;
+            color: white;
+            padding: 10px;
+
+            td {
+                padding: 10px;
+                border: 1px solid #ddd;
+
+                span {
+                    font-style: bold;
+                    font-weight: normal;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+
+@mixin botao-loja($cor) {
+    background-color: $cor;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+// ================== ESTILOS GERAIS ==================
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+// ================== BOTÕES DE LOJA ==================
+.store-selector {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    @each $nome, $cor in $cores-lojas {
+        ##{$nome}-btn {
+            @include botao-loja($cor);
+        }
+    }
+}
+
+// ================== CONTEÚDO PRINCIPAL ==================
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99vw;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    #shopee {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        #informacoes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #info-principal {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            justify-content: space-evenly;
+
+            .graficos {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+
+                canvas {
+                    max-width: 200px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #info-secundaria {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        td input {
+            width: 70vh;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    }
+}
+
+// ================== TEMAS DE LOJAS ==================
+@each $nome, $cor in $cores-lojas {
+    .#{$nome}-theme {
+        @include tema-loja($cor);
+    }
+}
