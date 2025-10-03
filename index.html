@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatisticas de Entregas das Lojas</title>
+
+    <link rel="stylesheet" href="./src/css/style.scss">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css.map">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="./src/script.js"></script>
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>Relátorio Díario de Pedidos de Coletados</h1>
+    </div>
+    <div class="store-selector">
+        <button class="store-btn active" data-store="lojas" id="lojas-btn">Lojas</button>
+        <button class="express-btn" data-store="expressos" id="expressos-btn">Expressos</button>
+    </div>
+    <section id="menu-inicial" class="menu-inicial ativo">
+        <main id="lojas" class="ativo">
+            <div id="shopee">
+                <div id="loja">
+                    <h2>Shopee</h2>
+                </div>
+                <div id="informacoes">
+                    <div id="info-principal">
+                        <table>
+                            <tr id="titulo_informacoes">
+                                <td>Métrica</td>
+                                <td>Quantidade</td>
+                            </tr>
+                            <div class="paired-row">
+                                <div id="shopee" class="store shopee paired active">
+                                    <td>Pedidos Enviar</td>
+                                    <td><input type="number" min="0" step="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quantidade Coletada</td>
+                                        <td><input type="number" min="0" step="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Separação Procegur</td>
+                                        <td><input type="number" min="0" step="1"></td>
+                                    </tr>
+                        </table>
+                        <div class="graficos">
+                            <h3>Visualização</h3>
+                            <div class="graficos-duplos">
+                                <div class="grafico">
+                                    <canvas id="grafico-coletado-shopee"></canvas>
+                                    <div id="percentual-grafico-coletado-shopee" class="percentual"></div>
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="grafico-procegur-shopee"></canvas>
+                                    <div id="percentual-grafico-procegur-shopee" class="percentual"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="info-secundaria">
+                        <div id="conteiner-relatos">
+                            <div id="relatos_problemas">
+                                <h3>Relato de Problemas</h3>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>Pedido #1:</td>
+                                    <td><input type="text" placeholder="Ex: Problema com a etiqueta..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #2:</td>
+                                    <td><input type="text" placeholder="Ex: Pedido não faturou..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #3:</td>
+                                    <td><input type="text" placeholder="Ex: Item indisponível..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #4:</td>
+                                    <td><input type="text" placeholder="Ex: Problema com a entrega..." /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mercado_livre">
+                <div id="loja">
+                    <h2>Mercado Livre</h2>
+                </div>
+                <div id="informacoes">
+                    <div id="info-principal">
+                        <table>
+                            <tr id="titulo_informacoes">
+                                <td>Métrica</td>
+                                <td>Quantidade</td>
+                            </tr>
+                            <tr>
+                                <td>Pedidos Enviados</td>
+                                <td><input type="number" min="0" step="1"></td>
+                            </tr>
+                            <tr>
+                                <td>Quantidade Coletada</td>
+                                <td><input type="number" min="0" step="1"></td>
+                            </tr>
+                            <tr>
+                                <td>Separação Procegur</td>
+                                <td><input type="number" min="0" step="1"></td>
+                            </tr>
+                        </table>
+                        <div class="graficos">
+                            <h3>Visualização</h3>
+                            <div class="graficos-duplos">
+                                <div class="grafico">
+                                    <canvas id="grafico-coletado-mercado_livre"></canvas>
+                                    <div id="percentual-grafico-coletado-mercado_livre" class="percentual"></div>
+
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="grafico-procegur-mercado_livre"></canvas>
+                                    <div id="percentual-grafico-procegur-mercado_livre" class="percentual"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="info-secundaria">
+                        <div id="conteiner-relatos">
+                            <div id="relatos_problemas">
+                                <h3>Relato de Problemas</h3>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>Pedido #1:</td>
+                                    <td><input type="text" placeholder="Ex: Problema com a etiqueta..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #2:</td>
+                                    <td><input type="text" placeholder="Ex: Pedido não faturou..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #3:</td>
+                                    <td><input type="text" placeholder="Ex: Item indisponível..." /></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedido #4:</td>
+                                    <td><input type="text" placeholder="Ex: Problema com a entrega..." /></td>
+                                </tr>
+                            </table>
+                        </div>
+        </main>
+        <main id="expressos" class="inativo">
+            <!-- Total Expresso -->
+            <div id="total_expresso" class="loja-container">
+                <h2>Total Expresso</h2>
+                <table class="tabela-metricas">
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    <tr>
+                        <td>Pedidos Enviados</td>
+                        <td><input type="number" id="pedidos-total_expresso" value="1000"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantidade Coletada</td>
+                        <td><input type="number" id="coletado-total_expresso" value="500"></td>
+                    </tr>
+                    <tr>
+                        <td>Separação Procegur</td>
+                        <td><input type="number" id="procegur-total_expresso" value="900"></td>
+                    </tr>
+                </table>
+
+                <div class="graficos">
+                    <h3>Visualização</h3>
+                    <div class="graficos-duplos">
+                        <div class="grafico">
+                            <canvas id="grafico-coletado-total_expresso"></canvas>
+                            <div id="percentual-grafico-coletado-total_expresso" class="percentual"></div>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="grafico-procegur-total_expresso"></canvas>
+                            <div id="percentual-grafico-procegur-total_expresso" class="percentual"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="conteiner-relatos">
+                    <div id="relatos_problemas">
+                        <h3>Relato de Problemas</h3>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Pedido #1:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a etiqueta..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #2:</td>
+                            <td><input type="text" placeholder="Ex: Pedido não faturou..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #3:</td>
+                            <td><input type="text" placeholder="Ex: Item indisponível..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #4:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a entrega..." /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Total 24h -->
+            <div id="total_24h" class="loja-container">
+                <h2>Total 24h</h2>
+                <table class="tabela-metricas">
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    <tr>
+                        <td>Pedidos Enviados</td>
+                        <td><input type="number" id="pedidos-total_24h" value="1000"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantidade Coletada</td>
+                        <td><input type="number" id="coletado-total_24h" value="300"></td>
+                    </tr>
+                    <tr>
+                        <td>Separação Procegur</td>
+                        <td><input type="number" id="procegur-total_24h" value="700"></td>
+                    </tr>
+                </table>
+
+                <div class="graficos">
+                    <h3>Visualização</h3>
+                    <div class="graficos-duplos">
+                        <div class="grafico">
+                            <canvas id="grafico-coletado-total_24h"></canvas>
+                            <div id="percentual-grafico-coletado-total_24h" class="percentual"></div>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="grafico-procegur-total_24h"></canvas>
+                            <div id="percentual-grafico-procegur-total_24h" class="percentual"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="conteiner-relatos">
+                    <div id="relatos_problemas">
+                        <h3>Relato de Problemas</h3>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Pedido #1:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a etiqueta..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #2:</td>
+                            <td><input type="text" placeholder="Ex: Pedido não faturou..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #3:</td>
+                            <td><input type="text" placeholder="Ex: Item indisponível..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #4:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a entrega..." /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Total Bras -->
+            <div id="total_bras" class="loja-container">
+                <h2>Total Bras</h2>
+                <table class="tabela-metricas">
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    <tr>
+                        <td>Pedidos Enviados</td>
+                        <td><input type="number" id="pedidos-total_bras" value="1000"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantidade Coletada</td>
+                        <td><input type="number" id="coletado-total_bras" value="400"></td>
+                    </tr>
+                    <tr>
+                        <td>Separação Procegur</td>
+                        <td><input type="number" id="procegur-total_bras" value="850"></td>
+                    </tr>
+                </table>
+
+                <div class="graficos">
+                    <h3>Visualização</h3>
+                    <div class="graficos-duplos">
+                        <div class="grafico">
+                            <canvas id="grafico-coletado-total_bras"></canvas>
+                            <div id="percentual-grafico-coletado-total_bras" class="percentual"></div>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="grafico-procegur-total_bras"></canvas>
+                            <div id="percentual-grafico-procegur-total_bras" class="percentual"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="conteiner-relatos">
+                    <div id="relatos_problemas">
+                        <h3>Relato de Problemas</h3>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Pedido #1:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a etiqueta..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #2:</td>
+                            <td><input type="text" placeholder="Ex: Pedido não faturou..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #3:</td>
+                            <td><input type="text" placeholder="Ex: Item indisponível..." /></td>
+                        </tr>
+                        <tr>
+                            <td>Pedido #4:</td>
+                            <td><input type="text" placeholder="Ex: Problema com a entrega..." /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+    </section>
+</body>
+
+</html>
