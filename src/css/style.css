@@ -1,343 +1,441 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
 
-h1,
-h2,
-h3 {
-  text-align: center;
-}
+  .cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* Container das lojas */
-#lojas {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: flex-start;
-}
+  .cabecalho h1 {
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    padding: 10px 20px;
+  }
 
-/* Cada loja */
-#lojas>div {
-  flex: 1;
-  max-width: 100%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-/* Botões */
-button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+  .cabecalho img {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    left: 20px;
+    margin: 10px 0px 0px 0px;
+  }
 
 
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+  }
 
-#shopee h2 {
-  border-bottom: 5px solid #FB5430;
-  margin-bottom: 5px;
-}
+  /* Container principal das lojas */
+  #lojas,
+  #expressos {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
-#mercado_livre h2 {
-  border-bottom: 5px solid #F2D500;
-  margin-bottom: 5px;
-}
+  /* Cada loja/transportadora */
+  .store {
+    flex: 1;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(5px);
+    box-sizing: border-box;
+  }
 
-#total_expresso h2 {
-  border-bottom: 5px solid #E53935;
-  margin-bottom: 5px;
-}
+  /* Botões */
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 
-#total_24h h2 {
-  border-bottom: 5px solid #1E88E5;
-  margin-bottom: 5px;
-}
+  /* === Corrige o alinhamento dos blocos === */
+  .store img {
+    display: block;
+    margin: 0 auto 15px auto;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
 
-#total_bras h2 {
-  border-bottom: 5px solid #FBC02D;
-  margin-bottom: 5px;
-}
+  /* Faz todos os blocos ficarem alinhados na linha */
+  #lojas,
+  #expressos {
+    align-items: flex-start;
+  }
 
-/* Estilos */
+  #shopee h2 {
+    border-bottom: 5px solid #FB5430;
+    margin-bottom: 5px;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: white
-}
+  #shopee table tr {
+    background-color: #FB5430;
+    color: white;
+  }
 
-#shopee table #titulo_informacoes {
-  background-color: rgb(243.2985781991, 47.0142180095, 4.7014218009);
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
+  #shopee table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-#shopee table tr {
-  background-color: #FB5430;
-  color: white;
-  padding: 10px;
-}
+  #shopee table input[type="number"],
+  #shopee table input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-#shopee table tr td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+  /* Mercado Livre */
+  #mercado_livre h2 {
+    border-bottom: 5px solid #F2D500;
+  }
 
-#shopee table tr td span {
-  font-style: bold;
-  font-weight: normal;
-  font-size: 0.9em;
-}
+  #mercado_livre table tr {
+    background-color: #F2D500;
+    color: white;
+  }
 
-#shopee table tr td input {
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  #mercado_livre table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-#shopee #info-secundaria #relatos_problemas input[type="text"] {
-  display: flex;
-  width: 100%;
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  #mercado_livre table input[type="number"],
+  #mercado_livre table input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-#mercado_livre h2 {
-  border-bottom: 5px solid #F2D500;
-}
+  /* Total Expresso */
+  #total_expresso h2 {
+    border-bottom: 5px solid #E53935;
+  }
 
-#mercado_livre table #titulo_informacoes {
-  background-color: rgb(242, 165, 0);
-  color: #ffffff;
-  font-weight: bold;
-  text-align: center;
-}
+  #total_expresso table tr {
+    background-color: #E53935;
+    color: white;
+  }
 
-#mercado_livre table tr {
-  background-color: #F2D500;
-  color: #ffffff;
-  padding: 10px;
-}
+  #total_expresso table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-#mercado_livre table tr td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+  #total_expresso table input[type="number"],
+  #total_expresso table input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-#mercado_livre table tr td input {
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  /* Total 24h */
+  #total_24h h2 {
+    border-bottom: 5px solid #E53935;
+  }
 
-.graficos-duplos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
-}
+  #total_24h table tr {
+    background-color: #E53935;
+    color: white;
+  }
 
-.grafico {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 40px;
-}
+  #total_24h table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-.graficos h3 {
-  margin-top: 10px;
-}
+  #total_24h table input[type="number"],
+  #total_24h table input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-#relatos_problemas h3 {
-  margin-bottom: 10px;
-}
+  /* Braspress */
+  #total_bras h2 {
+    border-bottom: 5px solid #1565C0;
+  }
 
-#total_bras,
-#total_expresso,
-#total_24h #relatos_problemas .graficos h2 {
-  /* margin-top: 15px; */
-  margin-bottom: 5px;
-}
+  #total_bras table tr {
+    background-color: #1565C0;
+    color: white;
+  }
 
-main.inativo {
-  display: none;
-}
+  #total_bras table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-main.ativo {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
+  #total_bras table input[type="number"],
+  #total_bras table input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-/* ========================= */
-/*      TRANSPORTADORAS      */
-/* ========================= */
+  /* Gráficos */
+  .graficos {
+    width: 100%;
+    max-width: 95%;
+    height: 320px;
+    margin: 10px auto;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #fff, #f7f7f7);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+  }
 
-/* Container dos expressos */
-#expressos {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  justify-content: center;
-  align-items: flex-start;
-}
+  /* Relato */
+  .relato {
+    margin-top: 30px;
+  }
 
-/* Cada transportadora */
-#expressos>div {
-  flex: 1;
-  max-width: 100%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
+  .relato h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
 
-/* ========================= */
-/*      TOTAL EXPRESSO       */
-/* ========================= */
-#total_expresso h2 {
-  border-bottom: 5px solid #E53935;
-}
+  /* Tabelas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
 
-#total_expresso table #titulo_informacoes {
-  background-color: #C62828;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
+  td {
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
 
-#total_expresso table tr {
-  background-color: #E53935;
-  color: white;
-}
+  td:first-child {
+    width: 60%;
+    font-weight: bold;
+  }
 
-#total_expresso table tr td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+  td:last-child {
+    width: 40%;
+  }
 
-#total_expresso table tr td input {
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  .relato td:first-child {
+    width: 30%;
+    font-weight: bold;
+  }
 
-/* ========================= */
-/*        TOTAL 24H          */
-/* ========================= */
-#total_24h h2 {
-  border-bottom: 5px solid #1E88E5;
-}
+  .relato td:last-child {
+    width: 100%;
+  }
 
-#total_24h table #titulo_informacoes {
-  background-color: #1565C0;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
+  input[type="number"],
+  input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+  }
 
-#total_24h table tr {
-  background-color: #1E88E5;
-  color: white;
-}
+  /* ====== ABA CONSOLIDADO ====== */
+  #consolidado {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
 
-#total_24h table tr td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+  #consolidado-section {
+    width: 85%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-#total_24h table tr td input {
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  #consolidado-section .volume-transportadora,
+  .quantidade-volume-sistema {
+    background-color: #1565C0;
+  }
 
-/* ========================= */
-/*         TOTAL BRAS        */
-/* ========================= */
-#total_bras h2 {
-  border-bottom: 5px solid #FBC02D;
-}
+  #consolidado-section .diferenca {
+    background-color: purple;
+  }
 
-#total_bras table #titulo_informacoes {
-  background-color: #F9A825;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
+  #consolidado-section .fechamento-carro {
+    background-color: grey;
+  }
 
-#total_bras table tr {
-  background-color: #FBC02D;
-  color: white;
-}
+  /* título */
+  #consolidado-section h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    width: 100%;
+  }
 
-#total_bras table tr td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+  /* tabela */
+  #consolidado-section table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 10px;
+  }
 
-#total_bras table tr td input {
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  #consolidado-section td {
+    width: 100px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+  }
 
-#total_bras #relatos_problemas {
-  margin-bottom: 5px;
-}
+  #consolidado-section tr:nth-child(1) {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+  }
 
-/* Só para os gráficos dos EXPRESSOS */
-#expressos .graficos-duplos {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  /* diminui o espaço entre os dois gráficos */
-  margin-top: 5px;
-}
+  #consolidado-section tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
-#expressos .grafico {
-  width: 180px;
-  /* menor que o padrão (200px) */
-  height: 180px;
-  margin-bottom: 20px;
-}
+  #consolidado-section .ticket tr {
+    background-color: #4CAF50;
+    color: #fff;
+  }
 
-.grafico .percentual,
-.percentual {
-  /* mantém compatibilidade caso use outras classes */
-  width: 100%;
-  text-align: center;
-  margin-top: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
-  color: #111;
-}
+  #consolidado-section .ticket td {
+    width: 50px;
+  }
 
-.grafico .chart-legend,
-.grafico .legend {
-  margin: 6px 0 0 0;
-  padding: 0;
-}
+  #consolidado-section .ticket td input {
+    width: 100%;
+  }
+
+  /* inputs e selects */
+  #consolidado-section input[type="number"],
+  #consolidado-section select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #consolidado-section select {
+    width: 100%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+
+  #consolidado-section td {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  #consolidado-section option {
+    font-size: 18px;
+  }
+
+  #consolidado-section input {
+    font-size: 18px;
+  }
+
+  /* gráfico */
+  #consolidado-section .graficos {
+    width: 100%;
+    height: 330px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #consolidado-section .total_pedido td {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #FB5430;
+    color: white;
+    padding: 15px 0;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+  }
+
+  #consolidado-section .total_pedido td:last-child {
+    background-color: #ff380b;
+  }
+
+  #consolidado-section .graficos h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+    font-size: 18px;
+  }
+
+  #grafico-3d-consolidado {
+    width: 100%;
+    max-width: 700px;
+    height: 380px;
+    margin: 0;
+  }
+
+  /* Linha dos tickets */
+  #consolidado-section .ticket td:first-child {
+    width: 15%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: #4CAF50;
+    border-right: 2px solid white;
+  }
+
+  #consolidado-section .ticket td:last-child {
+    width: 85%;
+    background-color: #4CAF50;
+    padding: 5px 10px;
+  }
+
+  /* Faz o input preencher toda a célula */
+  #consolidado-section .ticket input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 4px;
+  }
