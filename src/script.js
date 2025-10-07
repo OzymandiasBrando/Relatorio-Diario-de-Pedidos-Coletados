@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 options3d: { enabled: true, alpha: 45, beta: 0 },
                 backgroundColor: 'transparent',
                 height: 280,
+                animation: {
+                    duration: 1000,
+                    easing: "easeOutElastic"
+                }
             },
             title: { text: null },
             tooltip: {
@@ -38,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     cursor: 'pointer',
                     borderWidth: 2,
                     borderColor: '#ffffff',
+                    animation: {
+                        duration: 1000,
+                        easing: "easeOutElastic"
+                    },
                     dataLabels: {
                         enabled: true,
                         distance: 10,
@@ -66,18 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const get = i => Number(inputs[i]?.value) || 0;
 
         function atualizar() {
-            const pedidos = get(0), coletados = get(1), prosegur = get(2), saque = get(3), ti = get(4);
+            const pedidos = get(0), coletados = get(1), prosegur = get(2), sac = get(3), ti = get(4);
             const isTransportadora = storeId.includes('expresso') || storeId.includes('bras') || storeId.includes('24h');
-            const saqueFinal = isTransportadora ? 0 : saque;
-            const restante = Math.max(pedidos - (coletados + prosegur + saqueFinal + ti), 0);
+            const sacFinal = isTransportadora ? 0 : sac;
+            const restante = Math.max(pedidos - (coletados + prosegur + sacFinal + ti), 0);
 
-            const data = [
+            let data = [
                 { name: "Expedidos", y: coletados, color: "#12d623" },
                 { name: "Prosegur", y: prosegur, color: "#F1C40F" },
                 { name: "TI", y: ti, color: "#22dfe6" },
-                ...(isTransportadora ? [] : [{ name: "Saque", y: saqueFinal, color: "#100dc4" }]),
+                { name: "Sac", y: isTransportadora ? null : sacFinal, color: "#100dc4" },
                 { name: "Restante", y: restante, color: "#e0230d" }
             ];
+
+            data = data.filter(item => item.y && item.y > 0);
 
             criarOuAtualizarGrafico(graficoId, data);
             atualizarConsolidado();
@@ -97,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     mapa.forEach(([s, g]) => configurarGraficoLoja(s, g));
 
-    // Oculta "Tratativa Saque" nas transportadoras
+    // Oculta "Tratativa Sac" nas transportadoras
     document.querySelectorAll('#expressos .store table tr').forEach(tr => {
         const label = tr.querySelector('td:first-child');
-        if (label && label.textContent.trim().toLowerCase().includes('saque')) {
+        if (label && label.textContent.trim().toLowerCase().includes('sac')) {
             tr.style.display = 'none';
         }
     });
@@ -126,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mostrarAba({ section: lojasSection, btn: lojasBtn });
 
-    // 🔹 Atualiza gráfico Consolidado automaticamente
     function atualizarConsolidado() {
         const totalExp = Number(document.querySelector('#total_expresso input[type=number]')?.value) || 0;
         const totalBras = Number(document.querySelector('#total_bras input[type=number]')?.value) || 0;
@@ -263,9 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 tds[2].textContent = totalSist;
                 tds[3].textContent = difTotal;
 
-                // 🔹 Altera cor conforme o valor da diferença
-                if (difTotal > 0) {
-                    tds[3].style.background = "limegreen";
+                if (difTotal < 0) {
+                    tds[3].style.background = "red";
                     tds[3].style.color = "white";
                 } else if (difTotal === 0) {
                     tds[3].style.background = "yellow";
